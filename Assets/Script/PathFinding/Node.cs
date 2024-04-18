@@ -7,14 +7,14 @@ public class Node
 {
     // Start is called before the first frame update
     public Vector2Int coordinates;
-    public bool isSearchable;
+    public bool isWalkable;
     public bool isExplored;
     public bool isPath;
     public Node connectedTo;
 
-    public Node(Vector2Int coordinates,bool isSearchable) {
+    public Node(Vector2Int coordinates,bool isWalkable) {
         this.coordinates = coordinates;
-        this.isSearchable = isSearchable;
+        this.isWalkable = isWalkable;
     }
  
 }

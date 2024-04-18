@@ -17,8 +17,7 @@ public class ShowPosition : MonoBehaviour
     }
 
      private void OnMouseDown() {
-        Instantiate(Tree,transform.position+new Vector3(0,2,0),Quaternion.identity);
-        count.totalTree++;
-        Debug.Log(count.totalTree);
+        
+        Debug.Log(transform.position);
     }
 }

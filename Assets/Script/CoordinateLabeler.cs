@@ -11,45 +11,79 @@ public class CoordinateLabeler : MonoBehaviour
     [SerializeField] Color defaultColor = Color.white;
     [SerializeField] Color blockedColor = Color.red;
 
+    [SerializeField] Color exploredColor = Color.yellow;
+    [SerializeField] Color pathColor = Color.green;   //new Color(0.0.0);
+
     TextMeshPro label;
     Vector2Int coordinates = new Vector2Int();
-    Waypoint waypoint;
-    private void Awake() {
 
+    GridManager gridManager;
+
+    private void Awake()
+    {
+
+        gridManager = FindObjectOfType<GridManager>();
         label = GetComponent<TextMeshPro>();
-        waypoint = GetComponentInParent<Waypoint>();
+        label.enabled = false;
+
         DisplayCoordinates();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!Application.isPlaying) {
+        if (!Application.isPlaying)
+        {
             DisplayCoordinates();
             UpdateObjectName();
+            label.enabled = true;
         }
-        StyleCoordinate();
+        ColorizeCoordinate();
         ToggleLabel();
     }
 
-    private void StyleCoordinate() {
-        if(waypoint.IsPlaceable) {
-            label.color = defaultColor;
+    private void ColorizeCoordinate()
+    {
+        if (gridManager == null)
+        {
+            return;
         }
-        else {
+        Node node = gridManager.GetNode(coordinates);
+        if(node == null) { return;}
+        if (!node.isWalkable)
+        {
             label.color = blockedColor;
         }
+        else if (node.isPath)
+        {
+            label.color = pathColor;
+        }
+        else if (node.isExplored)
+        {
+            label.color = exploredColor;
+        }
+        else
+        {
+            label.color = defaultColor;
+        }
+
+
     }
-    private void ToggleLabel() {
-        if(Input.GetKeyDown(KeyCode.C)) {
-            label.enabled = !label.enabled;
-            
+    private void ToggleLabel()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            label.enabled = !label.IsActive();
         }
     }
-    private void UpdateObjectName() {
+
+
+    private void UpdateObjectName()
+    {
         transform.parent.name = coordinates.ToString();
     }
-    void DisplayCoordinates() {
+    void DisplayCoordinates()
+    {
 
         coordinates.x = Mathf.RoundToInt(transform.parent.position.x / UnityEditor.EditorSnapSettings.move.x);
         coordinates.y = Mathf.RoundToInt(transform.parent.position.z / UnityEditor.EditorSnapSettings.move.z);

@@ -82,12 +82,12 @@ PrefabInstance:
     - target: {fileID: 8525037936936822035, guid: a7acd7948c73ff949a0c5faee8a7ddbb,
         type: 3}
       propertyPath: m_fontColor.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8525037936936822035, guid: a7acd7948c73ff949a0c5faee8a7ddbb,
         type: 3}
       propertyPath: m_fontColor.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8525037936936822035, guid: a7acd7948c73ff949a0c5faee8a7ddbb,
         type: 3}
@@ -97,7 +97,7 @@ PrefabInstance:
     - target: {fileID: 8525037936936822035, guid: a7acd7948c73ff949a0c5faee8a7ddbb,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278190335
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8750575633220912604, guid: a7acd7948c73ff949a0c5faee8a7ddbb,
         type: 3}
