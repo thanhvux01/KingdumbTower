@@ -122,14 +122,15 @@ public class Pathfinder : MonoBehaviour
     {
         List<Node> path = new List<Node>();
         Node currentNode = endNode;
+        currentNode.isPath = true;
         path.Add(currentNode);
         //moi node chi co 1 connected 
         //xet tu diem den keo ve diem xuat phat
         while (currentNode.connectedTo != null)
         {
-            currentNode.isExplored = false;
-            currentNode.isPath = true;
+            
             currentNode = currentNode.connectedTo;
+            currentNode.isPath = true;
             path.Add(currentNode);
 
         }
@@ -148,16 +149,19 @@ public class Pathfinder : MonoBehaviour
             grid[coordinates].isWalkable = false;
             //set diem hien tai khong the di qua duoc sau do tim duong di
             List<Node> newPath = GetNewPath();
-            grid[coordinates].isWalkable = true;
+            grid[coordinates].isWalkable = prevState;
              //neu duong di < 1 thi khong the dat duoc no se block enemies
-            if (newPath.Count < 1)
-            {
-                GetNewPath();
+             // neu <1 thi se khong hoat dong boi luc nao path cung == 1 vi chua diem ket thuc
+            if (newPath.Count <= 1)
+            {   //neu nho hon 1 lay lai doan duong ban dau 
+                GetNewPath();   
                 return true;
             }
-
+         
+            
             
         }
+
         return false;
 
     }

@@ -7,12 +7,9 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] Transform weapon;
     [SerializeField] ParticleSystem projectileParticle;
     [SerializeField] float range = 15f;
-    EnemyMover target;
+     Transform target;
     
     private void Start() {
-
-         target = FindAnyObjectByType<EnemyMover>();
-         
 
 
     }
@@ -33,7 +30,7 @@ public class TargetLocator : MonoBehaviour
             }
           
         }
-        target.transform.position = new Vector3(closestTarget.transform.position.x,closestTarget.transform.position.y,closestTarget.transform.position.z);
+        target = closestTarget;
     }
     private void Aiming() {
 
