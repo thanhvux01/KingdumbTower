@@ -8,10 +8,11 @@ public class Tile : MonoBehaviour
     [SerializeField] Tower towerPrefab;
 
     [SerializeField] bool isPlaceable;
-    public bool IsPlaceable { get { return isPlaceable; } }
 
+    [SerializeField] bool isBarricaded;
+    public bool IsPlaceable { get { return isPlaceable; } }
+    public bool IsBarricaded { get { return isBarricaded; } set { isBarricaded = value;}}
    GridManager gridManager;
-   Pathfinder pathfinder;
     Vector2Int coordinates = new Vector2Int();
 
   /*  public bool GetIsPlaceable() {
@@ -19,7 +20,6 @@ public class Tile : MonoBehaviour
     }*/
      private void Awake() {
         gridManager = FindObjectOfType<GridManager>();
-        pathfinder = FindObjectOfType<Pathfinder>();
      }
     private void Start() {
         if(gridManager != null) {

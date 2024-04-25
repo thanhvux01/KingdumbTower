@@ -275,8 +275,8 @@ QualitySettings:
     useLegacyDetailDistribution: 1
     vSyncCount: 0
     realtimeGICPUUsage: 100
-    lodBias: 2
-    maximumLODLevel: 0
+    lodBias: 10
+    maximumLODLevel: 7
     enableLODCrossFade: 1
     streamingMipmapsActive: 0
     streamingMipmapsAddAllCameras: 1
@@ -303,8 +303,8 @@ QualitySettings:
     excludedTargetPlatforms: []
   m_TextureMipmapLimitGroupNames: []
   m_PerPlatformDefaultQuality:
-    Android: 0
-    Server: 0
+    Android: 5
+    Server: 5
     Standalone: 5
     WebGL: 5
     iPhone: 1

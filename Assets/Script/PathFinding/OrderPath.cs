@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -8,19 +9,14 @@ public class OrderPathfinder : MonoBehaviour
 {
     // Start is called before the first frame update
      List<Tile> path = new List<Tile>();
-     
-     public List<Tile> Path { get { return path; } }
-     
+
+    public List<Tile> Path { get { return path; } }
+    
+
 
     void Awake()
     {
         FindPath();
-        OrderReplaceX();
-        OrderReplaceY();
-        TurnPath();
-
- 
-
     }
 
     void OrderRemovedIndex()
@@ -91,6 +87,8 @@ public class OrderPathfinder : MonoBehaviour
 
         }
     }
+
+
     void TurnPath()
     {
 
@@ -117,7 +115,7 @@ public class OrderPathfinder : MonoBehaviour
                             for (int k = j; k < path.Count; k++)
                             {
 
-                                if (path[j].transform.position.x == path[i].transform.position.x && path[j].transform.position.x == path[k].transform.position.x )
+                                if (path[j].transform.position.x == path[i].transform.position.x && path[j].transform.position.x == path[k].transform.position.x)
                                 {
                                     if (path[j].transform.position.z < path[k].transform.position.z)
                                     {
@@ -135,7 +133,24 @@ public class OrderPathfinder : MonoBehaviour
             }
         }
     }
-    void FindPath()
+    void RemoveAfterBarricade()
+    {    
+        for (int i = 0; i < path.Count - 1; i++)
+        {
+            if (path[i].IsBarricaded)
+            {   
+                int total = Path.Count;
+                for (int j = 0; j < total-i; j++)
+                {   
+                    path.RemoveAt(path.Count-1);
+                }
+                return;
+            }
+        }
+
+
+    }
+    public void FindPath()
     {
         path.Clear();
         GameObject parent = GameObject.FindGameObjectWithTag("Path");
@@ -143,11 +158,15 @@ public class OrderPathfinder : MonoBehaviour
         foreach (Transform child in parent.transform)
         {
 
-            if (child.TryGetComponent<Tile>(out var waypoint))
+            if (child.TryGetComponent<Tile>(out var tile))
             {
-                path.Add(waypoint);
+                path.Add(tile);
             }
 
         }
+        OrderReplaceX();
+        OrderReplaceY();
+        TurnPath();
+        RemoveAfterBarricade();
     }
 }

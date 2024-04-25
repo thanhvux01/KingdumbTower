@@ -399,6 +399,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 0.6
+  attackRange: 1
 --- !u!114 &9162045851499622079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 5
+  difficultyRamp: 1
 --- !u!114 &4780390559962819295
 MonoBehaviour:
   m_ObjectHideFlags: 0

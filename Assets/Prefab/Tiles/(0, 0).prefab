@@ -238,6 +238,7 @@ MonoBehaviour:
   towerPrefab: {fileID: 6056233239378203586, guid: 8fcd2407cb4a2264a944cc3dbbf65376,
     type: 3}
   isPlaceable: 1
+  isBarricaded: 0
 --- !u!65 &1340403315913774669
 BoxCollider:
   m_ObjectHideFlags: 0
