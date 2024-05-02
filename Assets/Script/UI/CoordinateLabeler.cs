@@ -40,6 +40,7 @@ public class CoordinateLabeler : MonoBehaviour
         }
         ColorizeCoordinate();
         ToggleLabel();
+        
     }
 
     private void ColorizeCoordinate()

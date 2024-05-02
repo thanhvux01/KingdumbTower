@@ -19,11 +19,11 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField] float attackDamage = 10f;
 
+    [SerializeField] Barricade target;
+
     float distanceToTarget = Mathf.Infinity;
 
     Barricades barricades;
-
-    Barricade target;
     NavMeshAgent navMeshAgent;
     int checkpoint;
     Animator animator;
@@ -55,9 +55,9 @@ public class EnemyMovement : MonoBehaviour
 
     void TriggerAttack(Barricade barricade)
     {
-        if (animator != null && target != null && target.gameObject.activeSelf) 
-        {   
-            
+        if (animator != null && target != null && target.gameObject.activeSelf)
+        {
+
             barricade.GetDamage(attackDamage);
             animator.SetBool("Move", false);
             animator.SetBool("Attack", true);
@@ -81,7 +81,7 @@ public class EnemyMovement : MonoBehaviour
         navMeshAgent.enabled = false;
         target = barricades.GetLastestBarricade();
         StartCoroutine(FollowPath());
-        
+
 
     }
 
@@ -98,8 +98,7 @@ public class EnemyMovement : MonoBehaviour
     void FinishPath()
     {
         enemy = GetComponent<Enemy>();
-        enemy.GoldPenalty();
-
+        enemy.ReachedEnd();
     }
 
     void EnableNavMesh()
@@ -123,18 +122,19 @@ public class EnemyMovement : MonoBehaviour
         foreach (Tile tile in copyPath)
         {
             indexPath++;
-           
+
             if (checkpoint == 0 || checkpoint < indexPath)
-            {   
+            {
                 Vector3 startPosition = transform.position;
                 Vector3 endPosition = new Vector3(tile.transform.position.x, 0, tile.transform.position.z);
                 float travelPercent = 0f;
-                transform.LookAt(endPosition);  
+                transform.LookAt(endPosition);
                 while (travelPercent < 1f)
                 {
                     travelPercent += Time.deltaTime * speed;
                     transform.position = Vector3.Lerp(startPosition, endPosition, travelPercent);
                     yield return new WaitForEndOfFrame();
+                    
                 }
             }
 
@@ -156,9 +156,9 @@ public class EnemyMovement : MonoBehaviour
     IEnumerator AttackTarget()
     {
         while (target != null && target.gameObject.activeSelf)
-        {   
+        {
             distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
-        
+
             if (distanceToTarget < attackRange)
             {
                 TriggerAttack(target);

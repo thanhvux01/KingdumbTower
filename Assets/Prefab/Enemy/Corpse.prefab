@@ -74,13 +74,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7818589795673792911}
   - component: {fileID: 2571169672988767445}
-  - component: {fileID: 3000818087205242287}
-  - component: {fileID: -6445835444544833474}
-  - component: {fileID: -2719705184310857710}
-  - component: {fileID: -2867881329801965323}
-  - component: {fileID: 1088639220973386551}
+  - component: {fileID: 8493828552736190572}
   m_Layer: 0
-  m_Name: Skeleton
+  m_Name: Corpse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +109,7 @@ Animator:
   m_GameObject: {fileID: 267666914484419514}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b69174d668ba02d44b14a084b217670a, type: 3}
-  m_Controller: {fileID: 9100000, guid: 59d16264b0f651540a43de3089d54519, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1996cf928a3f4eb48bd4855481392abf, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -124,7 +120,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3000818087205242287
+--- !u!114 &8493828552736190572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,89 +129,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 267666914484419514}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c8b13faf94e2cd42be548e41c84f415, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bc16170158c2a84685b93000b05e53a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: []
-  speed: 1
-  attackRange: 3
-  attackDamage: 5
-  target: {fileID: 0}
---- !u!114 &-6445835444544833474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267666914484419514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38cb600a94a333948bcdf47b8d00d7be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goldReward: 25
-  goldPenalty: 25
---- !u!114 &-2719705184310857710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267666914484419514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44efab00a20a57f488a5fc5509f51cbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 5
-  difficultyRamp: 1
-  material: {fileID: 0}
-  corpse: {fileID: 267666914484419514, guid: 2cac7a7887cbe1549967d5d107058010, type: 3}
---- !u!195 &-2867881329801965323
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267666914484419514}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!136 &1088639220973386551
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267666914484419514}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  material: {fileID: 2100000, guid: 6e1288413afdbe944a18526c19c831af, type: 2}
+  renderObject: {fileID: 6135117178097075080}
 --- !u!1 &276030868302021788
 GameObject:
   m_ObjectHideFlags: 0
@@ -2130,6 +2048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 912993005225362338}
   - component: {fileID: 8721425397788489050}
+  - component: {fileID: 5704574389648971680}
   m_Layer: 0
   m_Name: Character_Skeleton_Slave_01
   m_TagString: Untagged
@@ -2254,6 +2173,20 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.006790161, y: 83.613525, z: -3.3693142}
     m_Extent: {x: 103.800064, y: 94.90732, z: 25.439714}
   m_DirtyAABB: 0
+--- !u!114 &5704574389648971680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135117178097075080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc16170158c2a84685b93000b05e53a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 6e1288413afdbe944a18526c19c831af, type: 2}
+  renderObject: {fileID: 6135117178097075080}
 --- !u!1 &6221146325203112961
 GameObject:
   m_ObjectHideFlags: 0

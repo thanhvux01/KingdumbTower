@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6701813742111842512}
   - component: {fileID: 6489316248408395820}
   - component: {fileID: 3268652984837872905}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: SM_Prop_Spike_Fortification_02 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 8477145317522908090}
   - component: {fileID: 259676777324436494}
   - component: {fileID: 7446374925490189737}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: SM_Wep_Siege_Tower_Wheels_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 4793478202446771267}
   - component: {fileID: 6317027545700205912}
   - component: {fileID: 2152779473626862229}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: SM_Wep_Siege_Tower_Wheels_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5248004415114750677}
-  m_Layer: 0
+  - component: {fileID: 2232749247927447796}
+  m_Layer: 23
   m_Name: Barricade_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,6 +312,22 @@ Transform:
   - {fileID: 8841457739921587560}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2232749247927447796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135434957223851828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 182a4f21cbab73b43912eecd72fda4a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  currentHP: 0
+  HPObject: {fileID: 4054327637039130417}
+  whereBeBuilt: {fileID: 0}
 --- !u!1 &3179665600514220332
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +340,7 @@ GameObject:
   - component: {fileID: 6767794697042175867}
   - component: {fileID: 4091386890206478270}
   - component: {fileID: 2947758970774958643}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: SM_Prop_Spike_Fortification_02 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +446,7 @@ GameObject:
   - component: {fileID: 4894120341650268871}
   - component: {fileID: 3797049917749646151}
   - component: {fileID: 5571856806429188233}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: SM_Prop_Sack_Stack_02 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -535,7 +552,7 @@ GameObject:
   - component: {fileID: 4374465405435702927}
   - component: {fileID: 2183161918603997884}
   - component: {fileID: 2370504152200606962}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: SM_Prop_Sack_Stack_02 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +658,7 @@ GameObject:
   - component: {fileID: 8637411650529400829}
   - component: {fileID: 6834230304513057246}
   - component: {fileID: 2949711633370881541}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: SM_Prop_Sack_Stack_01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +763,7 @@ GameObject:
   - component: {fileID: 2252530475149352576}
   - component: {fileID: 6271950871429565026}
   - component: {fileID: 6291422828104821517}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: SM_Wep_Siege_Tower_Wheels_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +846,7 @@ GameObject:
   - component: {fileID: 6013002947067177382}
   - component: {fileID: 7226131538694312902}
   - component: {fileID: 612296574203102477}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: SM_Wep_Siege_Tower_Ramp_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +930,7 @@ GameObject:
   - component: {fileID: 3315348491817638085}
   - component: {fileID: 7527776096725454878}
   - component: {fileID: 6674319947217020167}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: SM_Wep_Siege_Tower_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1023,7 +1040,7 @@ GameObject:
   - component: {fileID: 1513315225123562060}
   - component: {fileID: 829200722168345634}
   - component: {fileID: 5350389114458309067}
-  m_Layer: 0
+  m_Layer: 23
   m_Name: SM_Prop_Sack_Stack_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1125,10 +1142,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5248004415114750677}
     m_Modifications:
+    - target: {fileID: 1091442055914494620, guid: 89c05369a583b844f9b0b03decde39bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518180821269358612, guid: 89c05369a583b844f9b0b03decde39bb,
+        type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518180821269358612, guid: 89c05369a583b844f9b0b03decde39bb,
+        type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2623449207810268092, guid: 89c05369a583b844f9b0b03decde39bb,
         type: 3}
       propertyPath: m_Name
       value: HPBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2623449207810268092, guid: 89c05369a583b844f9b0b03decde39bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464538033112257004, guid: 89c05369a583b844f9b0b03decde39bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 5608498575967764677, guid: 89c05369a583b844f9b0b03decde39bb,
         type: 3}
@@ -1235,6 +1277,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89c05369a583b844f9b0b03decde39bb, type: 3}
+--- !u!1 &4054327637039130417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1091442055914494620, guid: 89c05369a583b844f9b0b03decde39bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3991958681275121069}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8841457739921587560 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5608498575967764677, guid: 89c05369a583b844f9b0b03decde39bb,

@@ -86,7 +86,7 @@ public class Pathfinder : MonoBehaviour
         }
         else
         {
-            Debug.Log("Không thể xuất phát vị trí này");
+            Debug.Log("This Node is not in Dictionary");
         }
     }
 
