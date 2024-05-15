@@ -7,8 +7,9 @@ public class Wave : MonoBehaviour
     // Start is called before the first frame update
     [Tooltip("Only One Object Pool at the same time , it's object pool will spawn enemy in the current wave")]
     [SerializeField] int currentWave = 0;
+    [SerializeField] StageLabel stageLabel;
     public int CurrentWave { get { return currentWave; } }
-    
+
     //Need to run after pool instantiate all enemies
     void Start()
     {
@@ -30,8 +31,9 @@ public class Wave : MonoBehaviour
     public void GoNextWave()
     {
 
-        currentWave++;
-        Debug.Log("Current Wave: "+currentWave);
+        currentWave++;  
+        stageLabel.NewWaveLabel(currentWave);
+
         for (int i = 0; i < transform.childCount; i++)
         {
             if (i == currentWave)

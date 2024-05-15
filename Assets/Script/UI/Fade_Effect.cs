@@ -11,7 +11,7 @@ public class Fade_Effect : MonoBehaviour
     float currentTime;
     float currentOpacity;
 
-    bool isRunning = true;
+    public bool isRunning = true;
 
     void Start()
     {

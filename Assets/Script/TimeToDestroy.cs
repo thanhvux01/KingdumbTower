@@ -9,10 +9,11 @@ public class TimeToDestroy : MonoBehaviour
 
     void Start()
     {
-        Invoke("Destroy2",5f);
+        StartCoroutine(SelfDestruct());
     }
-
-    private void Destroy2() {
+    IEnumerator SelfDestruct () {
+         yield return new WaitForSeconds(time);
          Destroy(gameObject);
-    }   
+    }
+   
 }

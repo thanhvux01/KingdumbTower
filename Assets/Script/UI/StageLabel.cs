@@ -6,22 +6,42 @@ using UnityEngine;
 public class StageLabel : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] Wave wave;
-
     TMP_Text textMesh;
-    void Start()
+
+    Color color;
+    [SerializeField] int fontSize = 50;
+
+    Fade_Effect fade_Effect;
+    void Awake()
     {
         textMesh = GetComponent<TMP_Text>();
-        NewWaveLabel();
+        fade_Effect = GetComponent<Fade_Effect>();
+
+    }
+    void Start()
+    {
+
+        if (textMesh != null)
+        {
+            textMesh.fontSize = fontSize;
+            color = textMesh.color;
+        }
+        NewWaveLabel(0);
     }
 
     // Update is called once per frame
-    void NewWaveLabel()
+    public void NewWaveLabel(int wave)
     {
+        
         if (textMesh)
         {
-            int currentWave = wave.CurrentWave+1;
-            textMesh.text = $"WAVE{currentWave} START!!";
+            if (fade_Effect)
+            {
+                fade_Effect.isRunning = true;
+                textMesh.color = color;
+                wave++;
+                textMesh.text = $"WAVE{wave} START!!";
+            }
         }
 
     }

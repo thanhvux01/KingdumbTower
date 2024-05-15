@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+#if UNITY_EDITOR
 using TMPro;
 using UnityEngine;
 
@@ -92,3 +91,4 @@ public class CoordinateLabeler : MonoBehaviour
         label.text = $"{coordinates.x},{coordinates.y}";
     }
 }
+#endif
