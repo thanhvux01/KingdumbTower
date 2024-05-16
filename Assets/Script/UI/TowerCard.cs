@@ -12,15 +12,18 @@ public class TowerCard : MonoBehaviour
 
     TowerManager towerManager;
 
+    MouseModeManager mouseModeManager;
+
     Image image;
 
-  
+
 
     // Start is called before the first frame update
 
     void Awake()
     {
         towerManager = FindObjectOfType<TowerManager>();
+        mouseModeManager = FindObjectOfType<MouseModeManager>();
         image = GetComponent<Image>();
         if (towerManager == null)
         {
@@ -30,15 +33,20 @@ public class TowerCard : MonoBehaviour
         {
             Debug.LogWarning("Can't find image component , plz check gameobject");
         }
+        if (mouseModeManager == null)
+        {
+            Debug.LogWarning("Can't find mouse system");
+        }
     }
 
     private void Start()
     {
-      
+
     }
 
     public void OnClick()
-    {   
+    {
+        mouseModeManager.MouseMode = MouseMode.Build;
         if (towerManager && tower)
         {
             towerManager.CurrentTower = tower;

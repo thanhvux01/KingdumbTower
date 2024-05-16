@@ -7,9 +7,12 @@ public class TowerManager : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] Tower defaultTower;
     [SerializeField] Tower currentTower;
+    GameObject towerPlaceHolder;
+    MouseModeManager mouseModeManager;
     public Tower CurrentTower { get { return currentTower; } set { currentTower = value; } }
     void Start()
     {
+        mouseModeManager = FindObjectOfType<MouseModeManager>();
         if (defaultTower)
         {
             currentTower = defaultTower;
@@ -19,4 +22,35 @@ public class TowerManager : MonoBehaviour
             Debug.LogWarning("default tower not found , plz select card before place it");
         }
     }
+
+    public bool CreateTower(Vector3 position)
+    {
+        if (mouseModeManager.MouseMode == MouseMode.Build)
+        {
+            towerPlaceHolder = GameObject.FindGameObjectWithTag("TowerPlaceHolder");
+
+            Eco eco = FindAnyObjectByType<Eco>();
+
+            if (eco == null)
+            {
+
+                return false;
+
+            }
+
+            if (eco.CurrentBalance >= currentTower.cost)
+            {
+                GameObject towerInstance = Instantiate(currentTower.gameObject, position, Quaternion.identity);
+                eco.Withdraw(currentTower.cost);
+                towerInstance.transform.parent = towerPlaceHolder.transform;
+                return true;
+
+            }
+
+            return false;
+
+        }
+        return false;
+    }
+
 }

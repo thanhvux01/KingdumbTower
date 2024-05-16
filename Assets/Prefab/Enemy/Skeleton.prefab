@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44efab00a20a57f488a5fc5509f51cbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 5
+  maxHP: 100
   hp_text: {fileID: 257389239756576940, guid: 75b9399056e5b0c49a93f99b5e9ab75a, type: 3}
   hp_text_placeholder: {fileID: 5577216814222398190}
   hp_bar: {fileID: 7556443519844599144}

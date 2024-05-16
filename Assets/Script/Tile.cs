@@ -39,8 +39,8 @@ public class Tile : MonoBehaviour
     {
         if (gridManager.GetNode(coordinates).isWalkable && towerManager)
         {
-            towerPrefab = towerManager.CurrentTower;
-            bool isPlaced = towerPrefab.CreateTower(towerPrefab, new Vector3(transform.position.x, 0, transform.position.z));
+           
+            bool isPlaced = towerManager.CreateTower(new Vector3(transform.position.x, 0, transform.position.z));
             isPlaceable = !isPlaced;
             gridManager.BlockNode(coordinates);
             return;

@@ -42,7 +42,7 @@ TagManager:
   - StencilLayer3
   - StencilLayer4
   - Enemy
-  - 
+  - ParticleHit
   - 
   m_SortingLayers:
   - name: Default

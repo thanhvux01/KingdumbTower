@@ -38,10 +38,14 @@ public class EnemyHealth : MonoBehaviour
     }
     private void OnParticleCollision(GameObject other)
     {
-        int numberDamage = 1;
-        currentHP -= numberDamage;
-        HPTextProcess(Instantiate(hp_text, hp_text_placeholder), numberDamage);
-        ProcessHit();
+        DamagedEnemy damage = other.gameObject.GetComponent<DamagedEnemy>();
+        if (damage != null)
+        {
+            int numberDamage = damage.damageStat.numberDamage;
+            currentHP -= numberDamage;
+            HPTextProcess(Instantiate(hp_text, hp_text_placeholder), numberDamage);
+            ProcessHit();
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -58,7 +62,7 @@ public class EnemyHealth : MonoBehaviour
     }
     private void HPTextProcess(TextMeshProUGUI text, int number)
     {
-        text.SetText("-"+number);
+        text.SetText("-" + number);
     }
     void ProcessHit()
     {
