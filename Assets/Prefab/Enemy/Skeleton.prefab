@@ -157,6 +157,11 @@ MonoBehaviour:
   goldReward: 25
   goldPenalty: 25
   livePentalty: 1
+  minMaxEnergy: {x: 1, y: 2}
+  coinPlaceHolder: {fileID: 0}
+  coins: {fileID: 5976492798881822749, guid: 4c2df9386ca76af4bad56421eaac86cc, type: 3}
+  soulEmit: {fileID: 0}
+  ParticleUI: {fileID: 0}
 --- !u!114 &-2719705184310857710
 MonoBehaviour:
   m_ObjectHideFlags: 0

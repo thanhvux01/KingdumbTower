@@ -78,6 +78,7 @@ public class EnemyMovement : MonoBehaviour
             animator.SetBool("Attack", false);
         }
         animator.SetBool("Move", true);
+
         navMeshAgent.enabled = false;
         target = barricades.GetLastestBarricade();
         StartCoroutine(FollowPath());
@@ -134,7 +135,7 @@ public class EnemyMovement : MonoBehaviour
                     travelPercent += Time.deltaTime * speed;
                     transform.position = Vector3.Lerp(startPosition, endPosition, travelPercent);
                     yield return new WaitForEndOfFrame();
-                    
+
                 }
             }
 

@@ -9,7 +9,6 @@ public class CoordinateLabeler : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] Color defaultColor = Color.white;
     [SerializeField] Color blockedColor = Color.red;
-
     [SerializeField] Color exploredColor = Color.yellow;
     [SerializeField] Color pathColor = Color.green;   //new Color(0.0.0);
 
@@ -18,13 +17,15 @@ public class CoordinateLabeler : MonoBehaviour
 
     GridManager gridManager;
 
-    private void Awake()
+    private void Start()
     {
-
         gridManager = FindObjectOfType<GridManager>();
+        if (gridManager == null)
+        {
+            Debug.LogWarning("Can't find gridsystem for label tile");
+        }
         label = GetComponent<TextMeshPro>();
         label.enabled = false;
-
         DisplayCoordinates();
     }
 
@@ -33,39 +34,52 @@ public class CoordinateLabeler : MonoBehaviour
     {
         if (!Application.isPlaying)
         {
+
             DisplayCoordinates();
             UpdateObjectName();
             label.enabled = true;
         }
         ColorizeCoordinate();
         ToggleLabel();
-        
+
     }
 
     private void ColorizeCoordinate()
     {
+
         if (gridManager == null)
         {
             return;
         }
+
         Node node = gridManager.GetNode(coordinates);
-        if(node == null) { return;}
+
+        if (node == null)
+        {   
+            return;
+        }
+
         if (!node.isWalkable)
         {
             label.color = blockedColor;
+           
         }
         else if (node.isPath)
         {
             label.color = pathColor;
+
         }
         else if (node.isExplored)
         {
             label.color = exploredColor;
+           
         }
         else
         {
             label.color = defaultColor;
+           
         }
+
 
 
     }
@@ -87,8 +101,8 @@ public class CoordinateLabeler : MonoBehaviour
 
         coordinates.x = Mathf.RoundToInt(transform.parent.position.x / UnityEditor.EditorSnapSettings.move.x);
         coordinates.y = Mathf.RoundToInt(transform.parent.position.z / UnityEditor.EditorSnapSettings.move.z);
-
         label.text = $"{coordinates.x},{coordinates.y}";
+
     }
 }
 #endif

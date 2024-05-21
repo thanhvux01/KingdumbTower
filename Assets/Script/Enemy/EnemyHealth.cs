@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] int maxHP = 5;
     [SerializeField] TextMeshProUGUI hp_text;
     [SerializeField] Transform hp_text_placeholder;
+
     [SerializeField] Image hp_bar;
     [Tooltip("Add amount to max maxHP when enemy dies")]
     [SerializeField] int difficultyRamp = 1;
@@ -29,6 +30,7 @@ public class EnemyHealth : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         objectPool = FindObjectOfType<ObjectPool>();
+       
 
     }
     private void OnEnable()
@@ -82,4 +84,6 @@ public class EnemyHealth : MonoBehaviour
         Instantiate(corpse, transform.position, transform.rotation);
 
     }
+
+    
 }

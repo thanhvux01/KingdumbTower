@@ -11,6 +11,10 @@ TagManager:
   - NoMask
   - TowerPlaceHolder
   - Path
+  - CoinPanel
+  - CoinPlaceHolder
+  - CameraUI
+  - SoulEmitter
   layers:
   - Default
   - TransparentFX

@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 100
+  towerName: Catapult
 --- !u!114 &1646351884105900749
 MonoBehaviour:
   m_ObjectHideFlags: 0

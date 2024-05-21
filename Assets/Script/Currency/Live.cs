@@ -18,13 +18,14 @@ public class Live : MonoBehaviour
     void Start()
     {
         currentLives = lives;
-        if (textMesh == null)
+
+        if (textMesh != null)
         {
-            Debug.LogWarning("textmesh is not assigned"); ;
+            textMesh.text = currentLives + "/" + lives;
         }
-        if (healthBar == null)
+        if (healthBar != null)
         {
-            Debug.LogWarning("health bar is not assigned"); ;
+            healthBar.fillAmount = currentLives / lives;
         }
     }
 
@@ -35,7 +36,7 @@ public class Live : MonoBehaviour
         {
             textMesh.text = currentLives + "/" + lives;
         }
-        if (healthBar != null)
+        if (healthBar != null )
         {
             healthBar.fillAmount = currentLives / lives;
         }

@@ -7,10 +7,11 @@ public class TowerManager : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] Tower defaultTower;
     [SerializeField] Tower currentTower;
+    [SerializeField] List<TowerCard> towerCards;
     GameObject towerPlaceHolder;
     MouseModeManager mouseModeManager;
     public Tower CurrentTower { get { return currentTower; } set { currentTower = value; } }
-    void Start()
+    void Awake()
     {
         mouseModeManager = FindObjectOfType<MouseModeManager>();
         if (defaultTower)
@@ -51,6 +52,21 @@ public class TowerManager : MonoBehaviour
 
         }
         return false;
+    }
+
+    public void ChangeCurrentTower(Tower tower)
+    {   
+        Debug.Log("here");
+        if (currentTower != tower)
+        {
+            currentTower = tower;
+            foreach (TowerCard card in towerCards)
+            {
+                card.UnSelectColor();
+            }
+        }
+
+
     }
 
 }

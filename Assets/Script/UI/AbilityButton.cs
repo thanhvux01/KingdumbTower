@@ -8,7 +8,6 @@ public class AbilityButton : MonoBehaviour
 {
     // Start is called before the first frame update
     AbilityManager abilityManager;
-
     Image image;
     [SerializeField] Color hoverColor;
     [SerializeField] Image frame;
@@ -30,15 +29,19 @@ public class AbilityButton : MonoBehaviour
         abilityManager.SwitchToAbilityMode();
     }
 
+    
+
     public void Hover()
     {
         image.color = hoverColor;
         frame.color = new Color(frameColor.r, frameColor.g, frameColor.b, 255);
+        MouseModeManager.instance.MouseState = MouseState.NotReady;
     }
 
     public void ExitHover()
     {
         image.color = backgroundColor;
         frame.color = frameColor;
+         MouseModeManager.instance.MouseState = MouseState.Ready;
     }
 }

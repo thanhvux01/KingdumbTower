@@ -6,11 +6,13 @@ public class AbilityManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] ParticleSystem ability;
-    MouseModeManager mouseModeManager;
+    [SerializeField] GameObject readyBorder;
+    Energy energy;
     void Awake()
     {
-        mouseModeManager = FindObjectOfType<MouseModeManager>();
-        if (mouseModeManager != null)
+       
+        energy = FindObjectOfType<Energy>();
+        if (MouseModeManager.instance != null)
         {
             Debug.LogWarning("Can't find mouse System");
         }
@@ -21,35 +23,44 @@ public class AbilityManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            // if (Physics.Raycast(ray, out RaycastHit hit))
-            // {
-            //     if (mouseModeManager.MouseMode == MouseMode.Ability)
-            //     {
-            //         if (hit.transform.position.y < 0)
-            //         {
-            //             Instantiate(ability, new Vector3(hit.transform.position.x, 1, hit.transform.position.z), Quaternion.identity);
-            //         }
-            //         else
-            //         {
-            //             Instantiate(ability, hit.transform.position, Quaternion.identity);
-            //         }
-            //     }
-            // }
-            if (mouseModeManager.MouseMode == MouseMode.Ability)
+
+            if (MouseModeManager.instance.MouseMode == MouseMode.Ability && energy.CurrentEnergy == energy.MaxEnergy)
             {
-                Vector3 mousePosition = Input.mousePosition;
-                mousePosition.z = 75f;
-                Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                if (MouseModeManager.instance.MouseState == MouseState.Ready)
+                {
+                    // Vector3 mousePosition = Input.mousePosition;
+                    // mousePosition.z = 75f;
+                    // Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+                    // Instantiate(ability, new Vector3(worldPosition.x, 0.5f, worldPosition.z), Quaternion.identity);
+                    // energy.DepletedEnergy();
 
-                Instantiate(ability, new Vector3(worldPosition.x, 0.5f, worldPosition.z), Quaternion.identity);
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                         Vector3 hitPosition = hit.point;
+                        Instantiate(ability, new Vector3(hitPosition.x, 0.5f, hitPosition.z), Quaternion.identity);
+                        energy.DepletedEnergy();
+                    }
+                }
+
             }
+        }
+
+        if (energy.CurrentEnergy == energy.MaxEnergy)
+        {
+            readyBorder.SetActive(true);
+        }
+        else
+        {
+            readyBorder.SetActive(false);
         }
     }
 
     public void SwitchToAbilityMode()
     {
-        mouseModeManager.MouseMode = MouseMode.Ability;
+        MouseModeManager.instance.MouseMode = MouseMode.Ability;
     }
 }

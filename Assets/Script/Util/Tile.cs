@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Tile : MonoBehaviour
 {
     // Start is called before the first frame update
-     Tower towerPrefab;
+    Tower towerPrefab;
     [SerializeField] bool isPlaceable;
 
     [SerializeField] bool isBarricaded;
@@ -28,6 +29,7 @@ public class Tile : MonoBehaviour
         if (gridManager != null)
         {
             coordinates = gridManager.ConvertPositionToCoordinate(transform.position);
+            
             if (!isPlaceable)
             {
                 gridManager.BlockNode(coordinates);
@@ -39,11 +41,13 @@ public class Tile : MonoBehaviour
     {
         if (gridManager.GetNode(coordinates).isWalkable && towerManager)
         {
-           
-            bool isPlaced = towerManager.CreateTower(new Vector3(transform.position.x, 0, transform.position.z));
-            isPlaceable = !isPlaced;
-            gridManager.BlockNode(coordinates);
-            return;
+            if (MouseModeManager.instance.MouseState == MouseState.Ready)
+            {
+                bool isPlaced = towerManager.CreateTower(new Vector3(transform.position.x, 0, transform.position.z));
+                isPlaceable = !isPlaced;
+                gridManager.BlockNode(coordinates);
+                return;
+            }
         }
         Debug.LogWarning("Can't find tower manager or your node is blocked");
 

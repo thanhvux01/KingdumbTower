@@ -91,12 +91,12 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: a
     positiveButton: d
-    altNegativeButton: q
+    altNegativeButton: 
     altPositiveButton: 
     gravity: 10
     dead: 0.5
-    sensitivity: 4
-    snap: 1
+    sensitivity: 3
+    snap: 0
     invert: 0
     type: 0
     axis: 0
@@ -153,14 +153,14 @@ InputManager:
     m_Name: Player1_Vertical
     descriptiveName: Vertical
     descriptiveNegativeName: 
-    negativeButton: s
-    positiveButton: z
+    negativeButton: down
+    positiveButton: up
     altNegativeButton: 
-    altPositiveButton: w
+    altPositiveButton: 
     gravity: 10
     dead: 0.5
-    sensitivity: 4
-    snap: 1
+    sensitivity: 3
+    snap: 0
     invert: 0
     type: 0
     axis: 1
@@ -169,8 +169,8 @@ InputManager:
     m_Name: Player2_Vertical
     descriptiveName: Vertical
     descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
+    negativeButton: s
+    positiveButton: w
     altNegativeButton: 
     altPositiveButton: 
     gravity: 10
